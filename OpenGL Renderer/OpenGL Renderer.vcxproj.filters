@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GLRenderer">
+      <UniqueIdentifier>{d63320b6-13e8-42f7-b63b-6c40e77a8dcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System">
+      <UniqueIdentifier>{ac1b26e2-aa99-4e65-8a4e-1e9d4800fe70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{e71fd729-9000-48e1-9686-a48df3c5a62a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Object">
+      <UniqueIdentifier>{95fdeffd-75c2-4478-8609-aac4170be9ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GLRenderer">
+      <UniqueIdentifier>{07e7274e-cebc-4be8-9871-99fe3ca73887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System">
+      <UniqueIdentifier>{a3eb1427-0b5a-4cdd-ae21-2c91039034b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="incl\GLCamera.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLFirstPersonCamera.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLLight.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLMaterial.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLSceneManager.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLShader.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLTexture.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLWindowManager.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\OpenGLContext.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\FileUtilities.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\InputListener.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\InputManager.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\MouseListener.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\SystemClock.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\SystemRoot.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLRenderNode.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLObjLoader.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\GLVertexBuffer.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="incl\FileManager.h">
+      <Filter>Header Files\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLCamera.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLFirstPersonCamera.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSceneManager.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLShader.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLTexture.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLWindowManager.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGLContext.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputManager.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SystemRoot.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLRenderNode.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLObjLoader.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLVertexBuffer.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileManager.cpp">
+      <Filter>Source Files\System</Filter>
+    </ClCompile>
+    <ClCompile Include="GLMaterial.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\test.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\test.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\texturenolight.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\texturenolight.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\texturealphalight.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\texturealphalight.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
+    <None Include="shaders\ambientdiffusealphalight.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\ambientdiffusealphalight.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\ambientdiffuselight.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\ambientdiffuselight.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\diffuselight.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\diffuselight.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

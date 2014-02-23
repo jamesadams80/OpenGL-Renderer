@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B18B827C-D417-4DEA-B599-4D4C97B0BFDE}</ProjectGuid>
+    <RootNamespace>OpenGLRenderer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\SOIL;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\libjpeg;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\glew - x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;jpeg.lib;Winmm.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\incl;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\SOIL;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies\glew - x86;C:\Users\James\Documents\Visual Studio 2013\Projects\OpenGL Renderer\OpenGL Renderer\Project Dependencies;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;Winmm.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="incl\FileManager.h" />
+    <ClInclude Include="incl\FileUtilities.h" />
+    <ClInclude Include="incl\GLCamera.h" />
+    <ClInclude Include="incl\GLFirstPersonCamera.h" />
+    <ClInclude Include="incl\GLLight.h" />
+    <ClInclude Include="incl\GLMaterial.h" />
+    <ClInclude Include="incl\GLRenderNode.h" />
+    <ClInclude Include="incl\GLObjLoader.h" />
+    <ClInclude Include="incl\GLSceneManager.h" />
+    <ClInclude Include="incl\GLShader.h" />
+    <ClInclude Include="incl\GLTexture.h" />
+    <ClInclude Include="incl\GLVertexBuffer.h" />
+    <ClInclude Include="incl\GLWindowManager.h" />
+    <ClInclude Include="incl\InputListener.h" />
+    <ClInclude Include="incl\InputManager.h" />
+    <ClInclude Include="incl\MouseListener.h" />
+    <ClInclude Include="incl\OpenGLContext.h" />
+    <ClInclude Include="incl\SystemClock.h" />
+    <ClInclude Include="incl\SystemRoot.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GLMaterial.cpp" />
+    <ClCompile Include="src\FileManager.cpp" />
+    <ClCompile Include="src\GLCamera.cpp" />
+    <ClCompile Include="src\GLFirstPersonCamera.cpp" />
+    <ClCompile Include="src\GLRenderNode.cpp" />
+    <ClCompile Include="src\GLObjLoader.cpp" />
+    <ClCompile Include="src\GLSceneManager.cpp" />
+    <ClCompile Include="src\GLShader.cpp" />
+    <ClCompile Include="src\GLTexture.cpp" />
+    <ClCompile Include="src\GLVertexBuffer.cpp" />
+    <ClCompile Include="src\GLWindowManager.cpp" />
+    <ClCompile Include="src\InputManager.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\OpenGLContext.cpp" />
+    <ClCompile Include="src\SystemRoot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="shaders\ambientdiffusealphalight.frag" />
+    <None Include="shaders\ambientdiffusealphalight.vert" />
+    <None Include="shaders\ambientdiffuselight.frag" />
+    <None Include="shaders\ambientdiffuselight.vert" />
+    <None Include="shaders\diffuselight.frag" />
+    <None Include="shaders\diffuselight.vert" />
+    <None Include="shaders\test.frag" />
+    <None Include="shaders\test.vert" />
+    <None Include="shaders\texturealphalight.frag" />
+    <None Include="shaders\texturealphalight.vert" />
+    <None Include="shaders\texturenolight.frag" />
+    <None Include="shaders\texturenolight.vert" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
