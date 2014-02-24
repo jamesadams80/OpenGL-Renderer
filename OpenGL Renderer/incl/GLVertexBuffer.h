@@ -6,13 +6,12 @@
 
 class GLVertexBuffer
 {
-	public:
-
-						GLVertexBuffer();
+public:
+                        GLVertexBuffer();
 
                         GLVertexBuffer( const std::vector<float>&, const std::vector<float>&, const std::vector<float>& );
 
-						~GLVertexBuffer();
+                        ~GLVertexBuffer();
 
         bool            loadVertexData( const std::vector<float>&, const std::vector<float>&, const std::vector<float>& );
 
@@ -46,19 +45,19 @@ class GLVertexBuffer
             return      m_normalBuffer;
         }
 
-	private:
+private:
 
-		GLuint			m_vertexBuffer;
+        GLuint      m_vertexBuffer;
 
-        GLuint          m_texBuffer;
+        GLuint      m_texBuffer;
 
-        GLuint          m_normalBuffer;	
+        GLuint      m_normalBuffer;	
         
-        int				m_NoOfVertex;
+        int         m_NoOfVertex;
 
-        int             m_NoOfTexCoord;
+        int         m_NoOfTexCoord;
 
-        int             m_NoOfNormals;
+        int         m_NoOfNormals;
 };
 
 #endif

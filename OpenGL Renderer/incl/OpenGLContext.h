@@ -9,42 +9,40 @@
 
 class OpenGLContext
 {
-	public:
+public:
 
-								OpenGLContext();
+                    OpenGLContext();
 
-								~OpenGLContext();
+                    ~OpenGLContext();
 
-		bool					createInitialGLContext( HWND );
+        bool        createInitialGLContext( HWND );
 
-		bool					createMainGLContext( HWND );
+        bool        createMainGLContext( HWND );
 
-        void                    initGLState();
+        void        initGLState();
 
-        void                    swapBuffers()
+        void        swapBuffers()
         {
             SwapBuffers(m_deviceContext);
         }
 
-		void					drawScene();
-
-	private:
+private:
 
         OpenGLContext( const OpenGLContext& );
         OpenGLContext& operator= ( const OpenGLContext& );
 
-		/* OpenGL Window creation variables */
+        /* OpenGL Window creation variables */
 
-		PIXELFORMATDESCRIPTOR	m_windowPixelFormat;
+        PIXELFORMATDESCRIPTOR   m_windowPixelFormat;
 
-		HWND					m_windowHandle;
-		HDC						m_deviceContext;
-		HGLRC					m_renderContext;
-		HGLRC					m_temprenderContext;
+        HWND            m_windowHandle;
+        HDC             m_deviceContext;
+        HGLRC           m_renderContext;
+        HGLRC           m_temprenderContext;
 
-		/*Wrangle function for grabbing main context*/
+        /*Wrangle function for grabbing main context*/
 
-		PFNWGLCREATECONTEXTATTRIBSARBPROC m_wglCreateContextAttribsARB;
+        PFNWGLCREATECONTEXTATTRIBSARBPROC m_wglCreateContextAttribsARB;
 };
 
 #endif

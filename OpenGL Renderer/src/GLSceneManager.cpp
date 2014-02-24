@@ -22,15 +22,15 @@ GLSceneManager::~GLSceneManager()
     GLRenderNode* renderNode;
 
     while (!m_RenderNodeList.empty())
-	{
+    {
         renderNode = m_RenderNodeList.back();
         m_RenderNodeList.pop_back();
 
         if ( renderNode )
-		{
+	    {
             delete renderNode;
-		}
-	}
+	    }
+    }
 }
 
 bool GLSceneManager::initTestScene()
@@ -46,7 +46,7 @@ bool GLSceneManager::initTestScene()
 
     newlight.setAmbientColour(glm::vec3(0.1f, 0.1f, 0.1f));
 
-    newlight.setDiffuseColour(glm::vec3(1.0f, 0.0f, 0.0f));
+    newlight.setDiffuseColour(glm::vec3(1.0f, 1.0f, 1.0f));
 
     newlight.setSpecularColour(glm::vec3(1.0f, 0.0f, 0.0f));
 
@@ -62,7 +62,7 @@ bool GLSceneManager::initTestScene()
 
     m_LightList.push_back(newlight);
 
-    m_LightList.push_back(newlight2);
+    // m_LightList.push_back(newlight2);
 
     m_currentCamera.calculateProjectionMatrix();
 
@@ -72,7 +72,7 @@ bool GLSceneManager::initTestScene()
 
     populateUniformLightArray();
 
-	return true;
+    return true;
 }
 
 void GLSceneManager::populateUniformLightArray()
@@ -93,25 +93,25 @@ void GLSceneManager::populateUniformLightArray()
 
 void GLSceneManager::renderScene()
 {
-	//sort viewports
+    //sort viewports
     glViewport(0, 0, m_currentCamera.getCameraResolutionX(), m_currentCamera.getCameraResolutionY());
 
-	glClearColor(0.0f,0.0f,0.0f,1.0f);
+    glClearColor(0.0f,0.0f,0.0f,1.0f);
 
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-	m_currentCamera.calculateViewMatrix();
+    m_currentCamera.calculateViewMatrix();
 
-	m_ViewMatrix = m_currentCamera.getViewMatrix();
+    m_ViewMatrix = m_currentCamera.getViewMatrix();
 
     m_NormalMatrix = glm::mat4();
-	// Iterate through render queue
+    // Iterate through render queue
 
     for (m_RenderNodeIter = m_RenderNodeList.begin();
         m_RenderNodeIter != m_RenderNodeList.end();
         ++m_RenderNodeIter)
-	{
+    {
         (*m_RenderNodeIter)->bindLightsToShader(m_LightUniformArray);
         (*m_RenderNodeIter)->renderNode(m_ViewMatrix, m_ProjectionMatrix, m_NormalMatrix);
-	}
+    }
 }

@@ -12,66 +12,65 @@
 class GLWindowManager
 {
 public:
+                        GLWindowManager();
 
-								GLWindowManager();
+                        GLWindowManager( HINSTANCE hInstance );
 
-								GLWindowManager( HINSTANCE hInstance );
+                        ~GLWindowManager();
 
-								~GLWindowManager();
+        void            create();
 
-		void					create();
+        void            show(int cmdShow);
 
-		void					show(int cmdShow);
+        void            setFullScreen();
 
-		void					setFullScreen();
+        void            setWindowed(); 
 
-		void					setWindowed(); 
+        inline HWND     getwindowHandle()
+        {
+            return m_hwnd;
+        }
 
-		inline HWND				getwindowHandle()
-		{
-			 return m_hwnd;
-		}
+        inline bool     hasQuit()
+        {
+            return m_quit;
+        }
 
-		inline bool				hasQuit()
-		{
-			return m_quit;
-		}
+        inline short    getSizeX()
+        {
+            return m_xSize;
+        }
 
-		inline short			getSizeX()
-		{
-			return m_xSize;
-		}
-
-		inline short			getSizeY()
-		{
-			return m_ySize;
-		}
+        inline short    getSizeY()
+        {
+            return m_ySize;
+        }
 
 protected:
 
-   		static LRESULT CALLBACK		msgRouter(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);    
+   		static LRESULT CALLBACK msgRouter(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);    
 
-		LRESULT CALLBACK		wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+		LRESULT CALLBACK    wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-		int						m_xSize, m_ySize;
+		int                 m_xSize, m_ySize;
 	
-		HWND					m_hwnd;
-
-		WINDOWPLACEMENT			m_windowedSettings;
+		HWND                m_hwnd;
+        
+		WINDOWPLACEMENT     m_windowedSettings;
 
 private:
 
-								GLWindowManager(const GLWindowManager&);
+                        GLWindowManager(const GLWindowManager&);
 
-		GLWindowManager&		operator=(const GLWindowManager&);
+		GLWindowManager&    operator=(const GLWindowManager&);
 
-		bool					m_fullscreen;
+		bool            m_fullscreen;
 
-		std::string				m_windowName;
+		std::string     m_windowName;
 
-		std::string				m_className;
+		std::string     m_className;
 
-		bool					m_quit;
+		bool            m_quit;
 
 };
 

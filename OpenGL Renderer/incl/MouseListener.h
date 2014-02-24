@@ -5,9 +5,9 @@ class MouseListener
 {
 public:
 
-	virtual ~MouseListener() {}
+    virtual ~MouseListener() {}
 
-	virtual void mouseEvent( short, short ) = 0;
+    virtual void mouseEvent( short, short ) = 0;
 
 private:
 

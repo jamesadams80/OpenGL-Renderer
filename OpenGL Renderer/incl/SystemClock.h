@@ -7,40 +7,40 @@ class SystemClock
 {
 public:
 
-					SystemClock() : m_timeScale(1.0f),
-									m_isPaused(false),
-									m_recordedTime(0)
-					{
+        SystemClock() : m_timeScale(1.0f),
+                        m_isPaused(false),
+                        m_recordedTime(0)
+        {
 
-					}
+        }
 
-	inline UINT32	getTime()
-	{
-		return static_cast<UINT32>( m_timeScale * m_recordedTime );
-	}
+	    inline UINT32   getTime()
+	    {
+		    return static_cast<UINT32>( m_timeScale * m_recordedTime );
+	    }
 
-	inline void		setTime()
-	{
-		m_recordedTime = timeGetTime();
-	}
+	    inline void     setTime()
+	    {
+		    m_recordedTime = timeGetTime();
+	    }
 
-	inline UINT32	getTimeDelta()
-	{
-		return static_cast<UINT32>(m_timeScale * (timeGetTime() - m_recordedTime));
-	}
+	    inline UINT32   getTimeDelta()
+	    {
+		    return static_cast<UINT32>(m_timeScale * (timeGetTime() - m_recordedTime));
+	    }
 
-	inline void		setTimeScale(float scale)
-	{
-		m_timeScale = scale;
-	}
+	    inline void setTimeScale(float scale)
+	    {
+		    m_timeScale = scale;
+	    }
 
 private:
 
-
-	DWORD			m_recordedTime;
+        DWORD       m_recordedTime;
 	
-	float			m_timeScale;
-	bool			m_isPaused;
+        float       m_timeScale;
+
+        bool        m_isPaused;
 };
 
 #endif

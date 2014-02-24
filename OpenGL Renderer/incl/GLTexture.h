@@ -7,7 +7,7 @@
 
 class GLTexture
 {
-	public:
+public:
 
         typedef enum
         {
@@ -17,32 +17,30 @@ class GLTexture
             SPECULAR_TEXTURE,
             SPECULAR_COEF_TEXTURE,
             ALPHA_MAP
-
         } TextureUnitIndex;
 			
-						GLTexture();
-						GLTexture( std::string );
+                    GLTexture();
+                    GLTexture( std::string );
 
-						~GLTexture();
+                    ~GLTexture();
 
-		bool			loadTexture( std::string );
+        bool        loadTexture( std::string );
 
-		bool			loadJPGTexture( std::string );
+        bool        loadJPGTexture( std::string );
 
-        bool            createXORTexture();
+        bool        createXORTexture();
 
-        void            bindTexture(TextureUnitIndex textureUnit)
+        void        bindTexture(TextureUnitIndex textureUnit)
         {
             glActiveTexture(GL_TEXTURE0 + textureUnit);
             glBindTexture(GL_TEXTURE_2D, m_textureHandle);
         }
 
-	private:
+private:
 
-		std::string		m_filename;
+        std::string     m_filename;
 
-		GLuint			m_textureHandle;
-
+        GLuint      m_textureHandle;
 };
 
 #endif

@@ -11,12 +11,12 @@ uniform mat4 NormalMatrix;
 
 out vec3 normal;
 out vec2 texCoord;
-out vec3 lightVector;
+out vec3 eyeSpaceCoord;
 
 void main()
 {
 	gl_Position = (ProjectionMatrix * ViewMatrix * ModelMatrix) * vec4(in_Vertex,1.0f);
     normal = normalize(vec3(NormalMatrix * vec4(in_NormCoord,1.0f)));
     texCoord = in_TexCoord;
-    lightVector = vec3( (ModelMatrix * ViewMatrix  ) * vec4(in_Vertex,1.0f));
+    eyeSpaceCoord = vec3( (ModelMatrix * ViewMatrix  ) * vec4(in_Vertex,1.0f));
 }

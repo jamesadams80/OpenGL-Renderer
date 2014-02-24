@@ -7,41 +7,40 @@
 
 class SystemRoot
 {
-	public:
+public:
 
-		static SystemRoot&	getInstance()
-		{
-			static SystemRoot instance;
+        static SystemRoot&  getInstance()
+        {
+            static SystemRoot instance;
 
-			return instance;
-		}
+            return instance;
+        }
 
-							~SystemRoot();
+                ~SystemRoot();
 
-		bool				initSubSystems();
+        bool    initSubSystems();
 
-		void				mainLoop();
+        void    mainLoop();
 
+private:
 
-	private:
+        // Different subsystem managers.  The Variables declared as pointers that are allocated off of the heap are done so i have more control over when they
+        // are destroyed.  Hence they are raw pointers not auto pointers.
 
-		// Different subsystem managers.  The Variables declared as pointers that are allocated off of the heap are done so i have more control over when they
-		// are destroyed.  Hence they are raw pointers not auto pointers.
+        GLWindowManager*    m_WindowManager;
+        OpenGLContext*      m_GLContext;
+        GLSceneManager*     m_SceneManager;
+        InputManager        m_InputManager;
 
-		GLWindowManager*	m_WindowManager;
-		OpenGLContext*		m_GLContext;
-		GLSceneManager*		m_SceneManager;
-		InputManager		m_InputManager;
+        SystemRoot();
 
-							SystemRoot();
+        // Singleton class none of these implemented.
 
-		// Singleton class none of these implemented.
+        SystemRoot(const SystemRoot&);
+        SystemRoot(const SystemRoot&&);
 
-		SystemRoot(const SystemRoot&);
-		SystemRoot(const SystemRoot&&);
-
-		SystemRoot& operator= (const SystemRoot&);
-		SystemRoot& operator= (const SystemRoot&&);
+        SystemRoot& operator= (const SystemRoot&);
+        SystemRoot& operator= (const SystemRoot&&);
 };
 
 #endif

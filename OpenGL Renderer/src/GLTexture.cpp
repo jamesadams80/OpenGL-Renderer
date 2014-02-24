@@ -7,27 +7,27 @@
 GLTexture::GLTexture() : m_textureHandle(0),
                          m_filename()
 {
-	glGenTextures(1, &m_textureHandle);
+    glGenTextures(1, &m_textureHandle);
 }
 
 
 GLTexture::GLTexture(std::string filename) : m_textureHandle(0),
                                              m_filename( filename )
 {
-	glGenTextures(1, &m_textureHandle);
+    glGenTextures(1, &m_textureHandle);
 
-	loadTexture(filename);
+    loadTexture(filename);
 }
 
 GLTexture::~GLTexture()
 {
-	glDeleteTextures(1, &m_textureHandle);
+    glDeleteTextures(1, &m_textureHandle);
 }
 
 bool GLTexture::loadTexture( std::string filename )
 {
-	int width, height, channels;
-	unsigned char *pImgData = NULL;
+    int width, height, channels;
+    unsigned char *pImgData = NULL;
 
     if (filename[filename.size()] == 0)
     {
@@ -36,12 +36,12 @@ bool GLTexture::loadTexture( std::string filename )
 
     pImgData = SOIL_load_image( filename.c_str(), &width, &height, &channels, SOIL_LOAD_AUTO);
 
-	if (!pImgData)
-	{
+    if (!pImgData)
+    {
         std::cout << "Cannot find texture " << filename.c_str() << "\n";
         createXORTexture();
-		return false;
-	}
+        return false;
+    }
 
     unsigned int glChannelVal;
 
@@ -61,7 +61,7 @@ bool GLTexture::loadTexture( std::string filename )
     }
     
 
-	glBindTexture(GL_TEXTURE_2D, m_textureHandle);
+    glBindTexture(GL_TEXTURE_2D, m_textureHandle);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -71,14 +71,14 @@ bool GLTexture::loadTexture( std::string filename )
 
     glBindTexture(GL_TEXTURE_2D, 0);
 
-	std::cout << "Texture loaded... width = " << width << " height = " << height << " comps = " << channels << "\n";
+    std::cout << "Texture loaded... width = " << width << " height = " << height << " comps = " << channels << "\n";
 
-	if (pImgData)
-	{
-		free(pImgData);
-	}
+    if (pImgData)
+    {
+        free(pImgData);
+    }
 
-	return true;
+    return true;
 }
 
 bool GLTexture::createXORTexture()

@@ -38,45 +38,45 @@ void GLFirstPersonCamera::moveCameraRight()
 
 void GLFirstPersonCamera::calculateLookVector()
 {
-	// Need to check that view vector never becomes parrallel to our up vector to prevent gimble lock)
+    // Need to check that view vector never becomes parrallel to our up vector to prevent gimble lock)
 
-	if( m_deltaY > (3.1415f / 2.0f) - 0.000001f) 
-	{
-		m_deltaY = (3.1415f / 2.0f) - 0.000001f;
-	}
-	if( m_deltaY < -((3.1415f / 2.0f) - 0.000001f)) 
-	{
-		m_deltaY = -(3.1415f / 2.0f) + 0.000001f;
-	}
+    if( m_deltaY > (3.1415f / 2.0f) - 0.000001f) 
+    {
+        m_deltaY = (3.1415f / 2.0f) - 0.000001f;
+    }
+    if( m_deltaY < -((3.1415f / 2.0f) - 0.000001f)) 
+    {
+        m_deltaY = -(3.1415f / 2.0f) + 0.000001f;
+    }
 
-	float x = cosf( m_deltaX ) * cosf( m_deltaY );
-	float y = sinf( m_deltaY );
-	float z = cosf( m_deltaY ) * sinf( m_deltaX );
+    float x = cosf( m_deltaX ) * cosf( m_deltaY );
+    float y = sinf( m_deltaY );
+    float z = cosf( m_deltaY ) * sinf( m_deltaX );
 
-	m_cameraLookAt = glm::normalize(glm::vec3(x,y,-z));
+    m_cameraLookAt = glm::normalize(glm::vec3(x,y,-z));
 }
 
 void GLFirstPersonCamera::inputEvent(Event e)
 {
-	if( e == CAMERA_MOVE_FOWARD )
-	{
-		moveCameraFoward();
-	}
+    if( e == CAMERA_MOVE_FOWARD )
+    {
+        moveCameraFoward();
+    }
 
-	if( e == CAMERA_MOVE_BACK )
-	{
-		moveCameraBack();
-	}
+    if( e == CAMERA_MOVE_BACK )
+    {
+        moveCameraBack();
+    }
 
-	if( e == CAMERA_MOVE_LEFT )
-	{
-		moveCameraLeft();
-	}
+    if( e == CAMERA_MOVE_LEFT )
+    {
+        moveCameraLeft();
+    }
 
-	if( e == CAMERA_MOVE_RIGHT )
-	{
-		moveCameraRight();
-	}
+    if( e == CAMERA_MOVE_RIGHT )
+    {
+        moveCameraRight();
+    }
 
     if (e == CAMERA_REPORT_POSITION)
     {
@@ -86,16 +86,16 @@ void GLFirstPersonCamera::inputEvent(Event e)
 
 void GLFirstPersonCamera::mouseEvent( short deltaX,short deltaY )
 {
-	short frameDx = (m_cameraResX / 2) - deltaX;
-	short frameDy = (m_cameraResY / 2) - deltaY;
+    short frameDx = (m_cameraResX / 2) - deltaX;
+    short frameDy = (m_cameraResY / 2) - deltaY;
 
-	if( frameDx || frameDy )
-	{
-		m_deltaX += m_mouseSensitivity * ( static_cast<float>(frameDx) / static_cast<float>(m_cameraResX) );
-		m_deltaY += m_mouseSensitivity * ( static_cast<float>(frameDy) / static_cast<float>(m_cameraResY) );
+    if( frameDx || frameDy )
+    {
+        m_deltaX += m_mouseSensitivity * ( static_cast<float>(frameDx) / static_cast<float>(m_cameraResX) );
+        m_deltaY += m_mouseSensitivity * ( static_cast<float>(frameDy) / static_cast<float>(m_cameraResY) );
 
-		calculateLookVector();
-	}
+        calculateLookVector();
+    }
 
-	SetCursorPos(m_cameraResX / 2, m_cameraResY / 2);
+    SetCursorPos(m_cameraResX / 2, m_cameraResY / 2);
 }

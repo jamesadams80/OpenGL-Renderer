@@ -10,28 +10,28 @@
 
 class FileManager
 {
-	public:
-					 		FileManager();
-							FileManager(const std::string&);
+public:
+                        FileManager();
+                        FileManager(const std::string&);
 
-							FileManager::FileManager(const std::string& fileName, std::string args);
+                        FileManager::FileManager(const std::string& fileName, std::string args);
 
-							~FileManager();
+                        ~FileManager();
 
-        void                seekStart();
+        void            seekStart();
 
-		unsigned int		getFileLength();
+        unsigned int    getFileLength();
 
-		unsigned char		getNextChar();
+        unsigned char   getNextChar();
 
-		FILE*				getFileStream()
-		{
-			return			m_fileStream;
-		}
+        FILE*           getFileStream()
+        {
+            return  m_fileStream;
+        }
 
-		unsigned int		isEOF();
+        unsigned int    isEOF();
 
-        char*               getNextLine()
+        char*           getNextLine()
         {
             if (m_fileStream == NULL)
             {
@@ -46,24 +46,22 @@ class FileManager
             return m_readBuffer;
         }
 
+private:
 
+        FILE*           m_fileStream;
 
-	private:
+        errno_t         m_errorNo;
 
-		FILE*				m_fileStream;
-
-		errno_t				m_errorNo;
-
-		std::string			m_fileName;
+        std::string     m_fileName;
 
         // Can only read in a buffer of maximum size 256
-        char       m_readBuffer[256];
+        char            m_readBuffer[256];
 
-		FileManager(const FileManager&);
-		FileManager& operator= (const FileManager&);
+        FileManager(const FileManager&);
+        FileManager& operator= (const FileManager&);
 
-		FileManager(const FileManager&&);
-		FileManager& operator= (const FileManager&&);
+        FileManager(const FileManager&&);
+        FileManager& operator= (const FileManager&&);
 };
 
 #endif

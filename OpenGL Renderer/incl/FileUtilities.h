@@ -7,18 +7,17 @@ class FileUtilities
 {
 public:
 
-		static int				getFileLength(FILE* file);
+        static int      getFileLength(FILE* file);
 
 private:
 		
-								FileUtilities();
+        FileUtilities();
 
-								~FileUtilities();
+        ~FileUtilities();
 
-								FileUtilities(const FileUtilities&);
+        FileUtilities(const FileUtilities&);
 
-								void operator= (const FileUtilities&);
-
+        void operator= (const FileUtilities&);
 };
 #endif
 

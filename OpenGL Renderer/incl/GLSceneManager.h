@@ -18,9 +18,9 @@ public:
 
 		                        ~GLSceneManager();
 
-		bool                    initTestScene();
+        bool                    initTestScene();
 
-		void                    renderScene();
+        void                    renderScene();
 
         void                    addRenderNode( GLRenderNode* renderNode )
         {
@@ -32,22 +32,22 @@ public:
             m_LightList.push_back(light);
         }
 
-		GLFirstPersonCamera*	getPlayerCamera()
-		{
-			return &m_currentCamera;
-		}
+        GLFirstPersonCamera*	getPlayerCamera()
+        {
+	        return &m_currentCamera;
+        }
 
 private:
 
-		GLSceneManager( const GLSceneManager& );
-		GLSceneManager( const GLSceneManager&& );
+        GLSceneManager( const GLSceneManager& );
+        GLSceneManager( const GLSceneManager&& );
 
-		GLSceneManager& operator= (const GLSceneManager&);
-		GLSceneManager& operator = (const GLSceneManager&&);   
+        GLSceneManager& operator= (const GLSceneManager&);
+        GLSceneManager& operator = (const GLSceneManager&&);   
 
         void                        populateUniformLightArray();
 
-		GLFirstPersonCamera			m_currentCamera;
+        GLFirstPersonCamera			m_currentCamera;
 
         std::vector<GLRenderNode*>  m_RenderNodeList;
 
@@ -57,11 +57,11 @@ private:
 
         UniformLightArray           m_LightUniformArray;
 
-		glm::mat4					m_worldMatrix;
+        glm::mat4					m_worldMatrix;
 
-		glm::mat4					m_ProjectionMatrix;
+        glm::mat4					m_ProjectionMatrix;
 
-		glm::mat4					m_ViewMatrix;
+        glm::mat4					m_ViewMatrix;
 
         glm::mat4                   m_NormalMatrix;
 };

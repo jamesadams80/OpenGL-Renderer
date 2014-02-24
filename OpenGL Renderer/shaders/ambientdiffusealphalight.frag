@@ -2,7 +2,7 @@
 
 in vec3 normal;
 in vec2 texCoord;
-in vec3 lightVector;
+in vec3 eyeSpaceCoord;
 
 uniform mat4 ModelMatrix;
 uniform mat4 ViewMatrix;
@@ -45,11 +45,11 @@ void main()
     {
         vec3 eyeLightPos = vec3( (ModelMatrix * ViewMatrix) * vec4(lightPositions[i],1.0f));
 
-        vec3 lightDirection = normalize( eyeLightPos - lightVector );
+        vec3 lightDirection = normalize( eyeLightPos - eyeSpaceCoord );
 
         vec3 reflectionVec =  - normalize( reflect( lightDirection, n ) );
 
-        vec3 eyePosition = normalize( -lightVector );
+        vec3 eyePosition = normalize( -eyeSpaceCoord );
 
         vec3 ambientColour = lightAmbientComp[i] * Ka * texture( ambientTexture, vec2( texCoord.s, -texCoord.t )).rgb;
 
@@ -73,5 +73,5 @@ void main()
     totalDiffuse = clamp(totalDiffuse,0.0f,1.0f);
     totalSpecular = clamp(totalSpecular,0.0f,1.0f);
 
-	gl_FragColor =  vec4( totalAmbient + totalDiffuse + totalSpecular, 1.0f);
+    gl_FragColor =  vec4( totalAmbient + totalDiffuse + totalSpecular, 1.0f);
 }

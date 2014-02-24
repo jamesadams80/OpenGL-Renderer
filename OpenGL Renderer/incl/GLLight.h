@@ -7,11 +7,11 @@ static const unsigned int MAX_NUMBER_OF_LIGHTS = 8;
 
 struct UniformLightArray
 {
-    glm::vec3 position[MAX_NUMBER_OF_LIGHTS];
-    glm::vec3 ambientColour[MAX_NUMBER_OF_LIGHTS];
-    glm::vec3 diffuseColour[MAX_NUMBER_OF_LIGHTS];
-    glm::vec3 specularColour[MAX_NUMBER_OF_LIGHTS];
-    int       numberOfActiveLights;
+    glm::vec3   position[MAX_NUMBER_OF_LIGHTS];
+    glm::vec3   ambientColour[MAX_NUMBER_OF_LIGHTS];
+    glm::vec3   diffuseColour[MAX_NUMBER_OF_LIGHTS];
+    glm::vec3   specularColour[MAX_NUMBER_OF_LIGHTS];
+    int         numberOfActiveLights;
 };
 
 class GLLight

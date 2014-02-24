@@ -8,35 +8,33 @@
 class GLFirstPersonCamera : public GLCamera, public InputListener, public MouseListener
 {
 public:
-						GLFirstPersonCamera();
+                    GLFirstPersonCamera();
 
-		virtual			~GLFirstPersonCamera();
+        virtual     ~GLFirstPersonCamera();
 
-		void			moveCameraFoward();
+        void        moveCameraFoward();
 
-		void			moveCameraBack();
+        void        moveCameraBack();
 
-		void			moveCameraLeft();
+        void        moveCameraLeft();
 
-		void			moveCameraRight();
+        void        moveCameraRight();
 
-		void			calculateLookVector();
+        void        calculateLookVector();
 
-		void			setSensitivity( float );
+        void        setSensitivity( float );
 
-		virtual void    inputEvent(Event e);
+        virtual void    inputEvent(Event e);
 
-		virtual void	mouseEvent( short, short );
+        virtual void    mouseEvent( short, short );
 
 private:
 
-		float			m_deltaX;
+        float       m_deltaX;
 
-		float			m_deltaY;
+        float       m_deltaY;
 
-		float			m_mouseSensitivity;
-
-
+        float       m_mouseSensitivity;
 };
 
 #endif

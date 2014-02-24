@@ -2,7 +2,7 @@
 
 in vec3 normal;
 in vec2 texCoord;
-in vec3 lightVector;
+in vec3 eyeSpaceCoord;
 
 uniform mat4 ModelMatrix;
 uniform mat4 ViewMatrix;
@@ -17,6 +17,7 @@ uniform vec3 Ks;
 uniform float Ns;
 
 const int MAX_NUMBER_OF_LIGHTS = 8;
+const float ATTENUATION_FACTOR = 0.0001;
 
 uniform vec3 lightPositions[MAX_NUMBER_OF_LIGHTS];
 uniform vec3 lightAmbientComp[MAX_NUMBER_OF_LIGHTS];
@@ -36,15 +37,15 @@ void main()
     {
         vec3 eyeLightPos = vec3( (ModelMatrix * ViewMatrix) * vec4(lightPositions[i],1.0f));
 
-        vec3 lightDirection = normalize( eyeLightPos - lightVector );
+        vec3 lightDirection = normalize( eyeLightPos - eyeSpaceCoord );
 
-        float distanceToLight = length (lightDirection);
+        float distanceToLight = length(eyeLightPos - eyeSpaceCoord);
 
-        float attenuation = 1 / (1 +  pow(distanceToLight,2));
+        float attenuation = 1 / (1 + ATTENUATION_FACTOR * pow(distanceToLight,2));
 
         vec3 reflectionVec =  - normalize( reflect( lightDirection, n ) );
 
-        vec3 eyePosition = normalize( -lightVector );
+        vec3 eyePosition = normalize( -eyeSpaceCoord );
 
         vec3 ambientColour = attenuation * lightAmbientComp[i] * Ka * texture( ambientTexture, vec2( texCoord.s, -texCoord.t )).rgb;
 

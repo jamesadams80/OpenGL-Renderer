@@ -3,10 +3,10 @@
 
 GLCamera::GLCamera() :  m_viewMatrix(glm::mat4()),
                         m_cameraPosition(glm::vec3(0.0,0.0,0.0)),
-						m_cameraLookAt(glm::vec3( 0.0, 0.0, -1.0 )),
-						m_cameraUp(glm::vec3( 0.0, 1.0, 0.0 )),
-						m_cameraResX(1920),
-						m_cameraResY(1080)
+                        m_cameraLookAt(glm::vec3( 0.0, 0.0, -1.0 )),
+                        m_cameraUp(glm::vec3( 0.0, 1.0, 0.0 )),
+                        m_cameraResX(1920),
+                        m_cameraResY(1080)
 {
 }
 

@@ -94,10 +94,10 @@
     <ClInclude Include="incl\SystemRoot.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GLMaterial.cpp" />
     <ClCompile Include="src\FileManager.cpp" />
     <ClCompile Include="src\GLCamera.cpp" />
     <ClCompile Include="src\GLFirstPersonCamera.cpp" />
+    <ClCompile Include="src\GLMaterial.cpp" />
     <ClCompile Include="src\GLRenderNode.cpp" />
     <ClCompile Include="src\GLObjLoader.cpp" />
     <ClCompile Include="src\GLSceneManager.cpp" />
@@ -111,7 +111,6 @@
     <ClCompile Include="src\SystemRoot.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="shaders\ambientdiffusealphalight.frag" />
     <None Include="shaders\ambientdiffusealphalight.vert" />
     <None Include="shaders\ambientdiffuselight.frag" />

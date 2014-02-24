@@ -3,11 +3,11 @@
 
 typedef enum Event
 {
-	CAMERA_MOVE_FOWARD,
-	CAMERA_MOVE_BACK,
-	CAMERA_MOVE_LEFT,
-	CAMERA_MOVE_RIGHT,
-	CAMERA_LOOK,
+    CAMERA_MOVE_FOWARD,
+    CAMERA_MOVE_BACK,
+    CAMERA_MOVE_LEFT,
+    CAMERA_MOVE_RIGHT,
+    CAMERA_LOOK,
     CAMERA_REPORT_POSITION
 };
 
@@ -15,9 +15,9 @@ class InputListener
 {
 public:
 
-	virtual ~InputListener() {}
+    virtual ~InputListener() {}
 
-	virtual void inputEvent(Event) = 0;
+    virtual void inputEvent(Event) = 0;
 
 private:
 

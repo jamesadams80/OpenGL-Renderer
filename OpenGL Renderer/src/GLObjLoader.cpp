@@ -1,5 +1,4 @@
 #include "GLObjLoader.h"
-#include "GLRenderOperation.h"
 #include <regex>
 #include <vector>
 #include <memory>
