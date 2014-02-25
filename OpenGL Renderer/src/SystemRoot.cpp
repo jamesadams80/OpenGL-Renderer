@@ -57,6 +57,8 @@ void SystemRoot::mainLoop()
 
         m_InputManager.pollInputDevices();
 
+        m_SceneManager->moveLights();
+
         m_SceneManager->renderScene();
 
         m_GLContext->swapBuffers();

@@ -90,6 +90,9 @@
     <ClInclude Include="incl\FileManager.h">
       <Filter>Header Files\System</Filter>
     </ClInclude>
+    <ClInclude Include="incl\GLLightPath.h">
+      <Filter>Header Files\GLRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -135,6 +138,9 @@
       <Filter>Source Files\System</Filter>
     </ClCompile>
     <ClCompile Include="src\GLMaterial.cpp">
+      <Filter>Source Files\GLRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLLightPath.cpp">
       <Filter>Source Files\GLRenderer</Filter>
     </ClCompile>
   </ItemGroup>

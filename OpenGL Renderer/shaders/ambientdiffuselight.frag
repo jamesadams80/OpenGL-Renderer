@@ -51,12 +51,14 @@ void main()
 
         float diffuseCoef =  max( dot(n,lightDirection),0.0f);
 
-        vec3 diffuseColour = (attenuation * lightDiffuseComp[i] * Kd * texture( diffuseTexture, vec2( texCoord.s, -texCoord.t )).rgb) * diffuseCoef;
+        vec3 diffuseColour = vec3(0.0f,0.0f,0.0f);
 
         vec3 specularColour = vec3(0.0f,0.0f,0.0f);
 
         if( diffuseCoef > 0 )
         {
+            diffuseColour = (attenuation * lightDiffuseComp[i] * Kd * texture( diffuseTexture, vec2( texCoord.s, -texCoord.t )).rgb) * diffuseCoef;
+
             specularColour = clamp( attenuation * Ks * lightSpecularComp[i] * ( pow ( max ( dot( reflectionVec, eyePosition ), 0.0f ) , Ns) ), 0.0f, 1.0f);
         }
 

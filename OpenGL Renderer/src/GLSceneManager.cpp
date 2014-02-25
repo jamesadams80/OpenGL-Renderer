@@ -50,19 +50,47 @@ bool GLSceneManager::initTestScene()
 
     newlight.setSpecularColour(glm::vec3(1.0f, 0.0f, 0.0f));
 
+    GLLightPath lightPath1(glm::vec3(1000, 200, 0), glm::vec3(-1000, 200, 0));
+
+    newlight.setLightPath(lightPath1);
+
     GLLight newlight2;
 
     newlight2.setPosition(glm::vec3(700.0f, 150.0f, 0.0f));
 
     newlight2.setAmbientColour(glm::vec3(0.1f, 0.1f, 0.1f));
 
-    newlight2.setDiffuseColour(glm::vec3(1.0f, 1.0f, 1.0f));
+    newlight2.setDiffuseColour(glm::vec3(0.0f, 0.0f, 1.0f));
 
     newlight2.setSpecularColour(glm::vec3(1.0f, 1.0f, 1.0f));
 
-    m_LightList.push_back(newlight);
+    GLLightPath lightPath2(glm::vec3(-1000, 200, 0), glm::vec3( 1000, 200, 0));
 
-    // m_LightList.push_back(newlight2);
+    newlight2.setLightPath(lightPath2);
+
+    GLLight newlight3;
+
+    newlight3.setPosition(glm::vec3(0.0f, 1500.0f, 0.0f));
+
+    newlight3.setAmbientColour(glm::vec3(0.1f, 0.1f, 0.1f));
+
+    newlight3.setDiffuseColour(glm::vec3(1.0f, 1.0f, 1.0f));
+
+    newlight3.setSpecularColour(glm::vec3(1.0f, 0.0f, 0.0f));
+
+    GLLightPath lightPath3(glm::vec3(-1250.0f, 570.0f, -480.0f), glm::vec3(-1250.0f, 570.0f, 480.0f)); 
+
+    lightPath3.addLightWayPoint(glm::vec3(1250.0f,570.0f,480.0f));
+
+    lightPath3.addLightWayPoint(glm::vec3(1250.0f, 570.0f, -480.0f));
+
+    newlight3.setLightPath(lightPath3);
+
+    //m_LightList.push_back(newlight);
+
+    //m_LightList.push_back(newlight2);
+
+    m_LightList.push_back(newlight3);
 
     m_currentCamera.calculateProjectionMatrix();
 
@@ -91,6 +119,14 @@ void GLSceneManager::populateUniformLightArray()
     }
 }
 
+void GLSceneManager::moveLights()
+{
+    for (std::vector<GLLight>::iterator it = m_LightList.begin(); it != m_LightList.end(); ++it)
+    {
+        it->moveLight();
+    }
+}
+
 void GLSceneManager::renderScene()
 {
     //sort viewports
@@ -106,6 +142,8 @@ void GLSceneManager::renderScene()
 
     m_NormalMatrix = glm::mat4();
     // Iterate through render queue
+
+    populateUniformLightArray();
 
     for (m_RenderNodeIter = m_RenderNodeList.begin();
         m_RenderNodeIter != m_RenderNodeList.end();

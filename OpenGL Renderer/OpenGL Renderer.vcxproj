@@ -78,6 +78,7 @@
     <ClInclude Include="incl\GLCamera.h" />
     <ClInclude Include="incl\GLFirstPersonCamera.h" />
     <ClInclude Include="incl\GLLight.h" />
+    <ClInclude Include="incl\GLLightPath.h" />
     <ClInclude Include="incl\GLMaterial.h" />
     <ClInclude Include="incl\GLRenderNode.h" />
     <ClInclude Include="incl\GLObjLoader.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="src\FileManager.cpp" />
     <ClCompile Include="src\GLCamera.cpp" />
     <ClCompile Include="src\GLFirstPersonCamera.cpp" />
+    <ClCompile Include="src\GLLightPath.cpp" />
     <ClCompile Include="src\GLMaterial.cpp" />
     <ClCompile Include="src\GLRenderNode.cpp" />
     <ClCompile Include="src\GLObjLoader.cpp" />

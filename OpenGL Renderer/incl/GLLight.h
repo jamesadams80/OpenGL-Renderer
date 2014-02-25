@@ -2,6 +2,7 @@
 #define _H_GLLIGHT_
 
 #include "glm\glm.hpp"
+#include "GLLightPath.h"
 
 static const unsigned int MAX_NUMBER_OF_LIGHTS = 8;
 
@@ -22,6 +23,7 @@ public:
                                     m_AmbientLightColour(glm::vec3(1.0f, 1.0f, 1.0f)),
                                     m_DiffuseLightColour(glm::vec3(1.0f, 1.0f, 1.0f)),
                                     m_SpecularLightColour(glm::vec3(1.0f, 1.0f, 1.0f)),
+                                    m_LightPath(m_Position, m_Position),
                                     m_SpecularExponent(1.0f)
                         {
                         }
@@ -38,6 +40,7 @@ public:
         void            setPosition(const glm::vec3& Position)
         {
             m_Position = Position;
+            m_LightPath.resetLightPath(Position);
         }
 
         glm::vec3       getAmbientColour() const 
@@ -70,7 +73,7 @@ public:
             m_SpecularLightColour = Colour;
         }
 
-        float       getSpecularExponent() const
+        float           getSpecularExponent() const
         {
             return m_SpecularExponent;
         }
@@ -78,6 +81,21 @@ public:
         void            setSpecularExpo(float expo)
         {
             m_SpecularExponent = expo;
+        }
+
+        void            setLightPath(const GLLightPath& lightpath)
+        {
+            m_LightPath = lightpath;
+        }
+
+        void            addLightWayPoint(const glm::vec3& newpoint)
+        {
+            m_LightPath.addLightWayPoint(newpoint);
+        }
+
+        void            moveLight()
+        {
+            m_Position = m_LightPath.interpolateLightPosition();
         }
 
 private:
@@ -89,6 +107,8 @@ private:
         glm::vec3        m_DiffuseLightColour;
 
         glm::vec3        m_SpecularLightColour;
+
+        GLLightPath      m_LightPath;
 
         float            m_SpecularExponent;
 };

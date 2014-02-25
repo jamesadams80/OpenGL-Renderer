@@ -22,6 +22,8 @@ public:
 
         void                    renderScene();
 
+        void                    moveLights();
+
         void                    addRenderNode( GLRenderNode* renderNode )
         {
             m_RenderNodeList.push_back(renderNode);
@@ -46,6 +48,8 @@ private:
         GLSceneManager& operator = (const GLSceneManager&&);   
 
         void                        populateUniformLightArray();
+
+
 
         GLFirstPersonCamera			m_currentCamera;
 

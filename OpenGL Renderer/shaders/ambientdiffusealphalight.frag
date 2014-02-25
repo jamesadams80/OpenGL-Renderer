@@ -18,6 +18,7 @@ uniform vec3 Ks;
 uniform float Ns;
 
 const int MAX_NUMBER_OF_LIGHTS = 8;
+const float ATTENUATION_FACTOR = 0.0001;
 
 uniform vec3 lightPositions[MAX_NUMBER_OF_LIGHTS];
 uniform vec3 lightAmbientComp[MAX_NUMBER_OF_LIGHTS];
@@ -49,19 +50,25 @@ void main()
 
         vec3 reflectionVec =  - normalize( reflect( lightDirection, n ) );
 
+        float distanceToLight = length(eyeLightPos - eyeSpaceCoord);
+
+        float attenuation = 1 / (1 + ATTENUATION_FACTOR * pow(distanceToLight,2));
+
         vec3 eyePosition = normalize( -eyeSpaceCoord );
 
-        vec3 ambientColour = lightAmbientComp[i] * Ka * texture( ambientTexture, vec2( texCoord.s, -texCoord.t )).rgb;
+        vec3 ambientColour = attenuation * lightAmbientComp[i] * Ka * texture( ambientTexture, vec2( texCoord.s, -texCoord.t )).rgb;
 
         float diffuseCoef =  max( dot(n,lightDirection),0.0f);
 
-        vec3 diffuseColour = (lightDiffuseComp[i] * Kd * texture( diffuseTexture, vec2( texCoord.s, -texCoord.t )).rgb) * diffuseCoef;
+        vec3 diffuseColour = vec3(0.0f,0.0f,0.0f);
 
         vec3 specularColour = vec3(0.0f,0.0f,0.0f);
 
         if( diffuseCoef > 0 )
         {
-            specularColour = clamp( Ks * lightSpecularComp[i] * ( pow ( max ( dot( reflectionVec, eyePosition ), 0.0f ) , Ns) ), 0.0f, 1.0f);
+            diffuseColour = (attenuation * lightDiffuseComp[i] * Kd * texture( diffuseTexture, vec2( texCoord.s, -texCoord.t )).rgb) * diffuseCoef;
+
+            specularColour = clamp(attenuation * Ks * lightSpecularComp[i] * ( pow ( max ( dot( reflectionVec, eyePosition ), 0.0f ) , Ns) ), 0.0f, 1.0f);
         }
 
         totalAmbient += ambientColour;
